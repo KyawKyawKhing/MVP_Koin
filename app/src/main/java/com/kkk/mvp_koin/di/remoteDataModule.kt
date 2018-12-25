@@ -1,6 +1,7 @@
 package com.kkk.mvp_koin.di
 
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
+import com.kkk.mvp_koin.Utility.AppConstants
 import com.kkk.mvp_koin.di.DatasourceProperties.SERVER_URL
 import com.kkk.mvp_koin.network.ApiService
 import okhttp3.OkHttpClient
@@ -15,7 +16,7 @@ val remoteDatasourceModule = module(definition = {
     // provided web components
     single { createOkHttpClient() }
     // Fill property
-    single<ApiService> { createWebService<ApiService>(get(), "https://api.myjson.com/") }
+    single<ApiService> { createWebService(get(), AppConstants.baseUrl) }
 })
 
 

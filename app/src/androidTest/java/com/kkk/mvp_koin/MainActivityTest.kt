@@ -23,14 +23,14 @@ class MainActivityTest {
         onView(withId(R.id.rvNotice))
             .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
     }
-//    @Test
-//    fun countPrograms() {
-//        onView(withId(R.id.rvNotice))
-//            .check(matches(withItemCount(100)))
-//    }
-//    @Test
-//    fun countProgramsWithViewAssertion() {
-//        onView(withId(R.id.rvNotice))
-//            .check(hasItemCount(100))
-//    }
+    @Test
+    fun countPrograms() {
+        onView(withId(R.id.rvNotice))
+            .check(matches(withItemCount(10)))
+    }
+    @Test
+    fun countProgramsWithViewAssertion() {
+        onView(withId(R.id.rvNotice))
+            .check(hasItemCount(10))
+    }
 }

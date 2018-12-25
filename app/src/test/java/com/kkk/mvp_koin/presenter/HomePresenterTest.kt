@@ -11,7 +11,10 @@ import org.koin.core.parameter.parametersOf
 import org.koin.standalone.StandAloneContext
 import org.koin.standalone.inject
 import org.koin.test.KoinTest
+import org.mockito.Mock
+import org.mockito.Mockito
 import org.mockito.Mockito.mock
+import org.mockito.MockitoAnnotations
 
 class HomePresenterTest : KoinTest {
     private val view: HomeContract.View = mock(HomeContract.View::class.java)
@@ -20,6 +23,8 @@ class HomePresenterTest : KoinTest {
 
     @Before
     fun before() {
+//        MockitoAnnotations.initMocks(this)
+
         StandAloneContext.startKoin(testAppModule)
     }
 
@@ -33,8 +38,14 @@ class HomePresenterTest : KoinTest {
         presenter.loadNoticeList()
         view.displayNoticetList(emptyList())
         view.displayError("no error")
-        //then
-//        then(view).should().displayNoticetList(emptyList())
+//        Mockito.verify(view).displayNoticetList(emptyList())
+    }
+
+    @Test
+    fun fetchNoticeList() {
+        repository.getNoticeList()
+        view.displayNoticetList(emptyList())
+        view.displayError("no error")
     }
 
 }

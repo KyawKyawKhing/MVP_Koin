@@ -18,7 +18,6 @@ class HomePresenter(
 
     private val compositeDisposable = CompositeDisposable()
 
-    @SuppressLint("CheckResult")
     override fun loadNoticeList() {
         compositeDisposable.add(
             repository.getNoticeList()

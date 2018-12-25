@@ -52,10 +52,3 @@ class CustomAssertions {
         }
     }
 }
-
-private class RecyclerViewItemCountAssertion(private val count: Int) : ViewAssertion {
-
-    override fun check(view: View, noViewFoundException: NoMatchingViewException?) {
-
-    }
-}
